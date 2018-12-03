@@ -1,0 +1,41 @@
+﻿@inject BooksClientService BooksService
+
+<p>This component shows data returned from an Azure Function.</p>
+
+@if (books == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Publisher</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in books)
+            {
+                <tr>
+                    <td>@book.BookId</td>
+                    <td>@book.Title</td>
+                    <td>@book.Publisher</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@functions {
+    Book[] books;
+
+    protected override async Task OnInitAsync()
+    {
+        // books = (await BooksService.GetBooksAsync("http://localhost:7071/api/BooksFunction")).ToArray();
+        books = (await BooksService.GetBooksAsync("https://thriveconf.azurewebsites.net/api/booksfunction")).ToArray();
+    }
+
+}
