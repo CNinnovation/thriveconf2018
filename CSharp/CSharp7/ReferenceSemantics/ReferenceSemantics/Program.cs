@@ -16,7 +16,6 @@ namespace ReferenceSemantics
             ReadOnlySpan<char> span2 = s.AsSpan();
             ReadOnlySpan<char> slice2 = span2.Slice(5, 10);
 
-
             int answer = 42;
             PassByValue(answer);
             Console.WriteLine(answer);

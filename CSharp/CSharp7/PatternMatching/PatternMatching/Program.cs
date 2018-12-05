@@ -14,10 +14,10 @@ class Program
         Console.WriteLine(nameof(PatternMatching));
         object[] data = { null, 42, new Person("Matthias Nagel"), new Person("Katharina Nagel") };
 
-        //foreach (var item in data)
-        //{
-        //    IsPattern(item);
-        //}
+        foreach (var item in data)
+        {
+            IsPattern(item);
+        }
         foreach (var item in data)
         {
             SwitchPattern(item);

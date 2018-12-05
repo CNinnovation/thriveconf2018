@@ -17,8 +17,8 @@ namespace TuplesSample
             (x2, s2) = (42, "two");
             Console.WriteLine($"{x2} {s2}");
 
-            (int result, int reminder) = Divide(11, 3);
-            Console.WriteLine($"{result} {reminder}");
+            (int result, int remainder) = Divide(11, 3);
+            Console.WriteLine($"{result} {remainder}");
 
             // use the ValueTuple type
             ValueTuple<int, int> tuple1 = Divide(11, 3);
@@ -34,8 +34,8 @@ namespace TuplesSample
             Console.WriteLine($"{tuple3.Name} {tuple3.Age}");
 
             // types match
-            tuple1 = (result, reminder);
-            (int x, int y) = (result, reminder);
+            tuple1 = (result, remainder);
+            (int x, int y) = (result, remainder);
             Console.WriteLine($"{x} {y}");
 
             // use the var keyword
@@ -76,9 +76,9 @@ namespace TuplesSample
         static (int, int) Divide(int x, int y)
         {
             int result = x / y;
-            int reminder = x % y;
+            int remainder = x % y;
 
-            return (result, reminder);
+            return (result, remainder);
         }
     }
 
